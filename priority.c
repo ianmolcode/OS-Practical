@@ -12,6 +12,7 @@ void main()
     {
         scanf("%d", &bt[i]);
     }
+    printf("Enter the priority of the processes: ");
     for (i = 0; i < n; i++)
     {
         scanf("%d", &pr[i]);

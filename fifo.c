@@ -14,6 +14,7 @@ int main()
     printf("Enter the page reference string: ");
     for (i = 0; i < npage; i++)
         scanf("%d", &page[i]);
+    pos = 0;
     for (i = 0; i < npage; i++)
     {
         flag = 0;
@@ -26,7 +27,7 @@ int main()
                 break;
             }
         }
-        if (flag == 0)
+        if (flag == 0) //
         {
             frame[pos] = page[i];
             pos++;

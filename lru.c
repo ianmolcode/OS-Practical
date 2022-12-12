@@ -48,7 +48,7 @@ int main()
             }
         }
 
-        if (flag1 == 0)  // if the page is not in the frames
+        if (flag1 == 0)  // if the page is not in the frames but there is an empty frame
         {
             for (j = 0; j < no_of_frames; ++j)
             {

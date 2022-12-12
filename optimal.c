@@ -52,11 +52,11 @@ int main()
         {
             flag3 = 0;
 
-            for (j = 0; j < no_of_frames; ++j)
+            for (j = 0; j < no_of_frames; ++j) // find the page that will be used the farthest in the future
             {
-                temp[j] = -1;
+                temp[j] = -1; // initialize the temp array to -1
 
-                for (k = i + 1; k < no_of_pages; ++k)
+                for (k = i + 1; k < no_of_pages; ++k) // find the page that will be used the farthest in the future
                 {
                     if (frames[j] == pages[k])
                     {
