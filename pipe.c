@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+//will not run on windows
 int main()
 {
     int fd[2], n;

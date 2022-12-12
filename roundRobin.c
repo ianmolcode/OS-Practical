@@ -3,7 +3,8 @@
 #include <unistd.h>
 void main()
 {
-    int n, i, qt, count, temp, sq = 0, bt[10], wt[10], tat[10], rem_bt[10];
+    int i, j, n, count = 0, bt[20], wt[20], tat[20], qt, temp, sq, rem_bt[10];
+    ;
     float awt = 0, atat = 0;
     printf("Enter the number of processes: ");
     scanf("%d", &n);
@@ -13,43 +14,39 @@ void main()
         scanf("%d", &bt[i]);
         rem_bt[i] = bt[i];
     }
-
+    printf("Enter the time quantum: ");
+    scanf("%d", &qt);
     while (1)
     {
-        for (int i = 0, count = 0; i < n; i++)
+        for (i = 0, count = 0; i < n; i++)
         {
-            temp = qt; // store the quantum time in temp
-            if (rem_bt[i] == 0)
+            temp = qt;
+            if (rem_bt[i] == 0) // if the process has finished executing
             {
                 count++;
-                continue; // if the process is completed then continue
+                continue;
             }
-            if (rem_bt[i] > qt)
+            if (rem_bt[i] > qt) // if the process has not finished executing
             {
-                rem_bt[i] = rem_bt[i] - qt;
+                rem_bt[i] -= qt;
             }
-            else
+            else if (rem_bt[i] >= 0) // if the process has finished executing
             {
-                if (rem_bt[i] >= 0)
-                {
-                    temp = rem_bt[i];
-                    rem_bt[i] = 0;
-                }
+                temp = rem_bt[i];
+                rem_bt[i] = 0;
             }
-            sq = sq + temp; // store the total time
-            tat[i] = sq;    // store the total time in tat
+            sq += temp;
+            tat[i] = sq;
         }
         if (n == count)
-        {
             break;
-        }
     }
     printf("Process\t\tBurst Time\t\tTurn Around Time\t\tWaiting Time");
     for (i = 0; i < n; i++)
     {
         wt[i] = tat[i] - bt[i];
-        awt = awt + wt[i];
-        atat = atat + tat[i];
+        awt += wt[i];
+        atat += tat[i];
         printf("\n%d\t\t%d\t\t%d\t\t%d", i + 1, bt[i], tat[i], wt[i]);
     }
     awt = awt / n;
